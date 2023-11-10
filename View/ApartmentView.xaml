@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Modern_Real_Estate.View.ApartmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Modern_Real_Estate.View"
+             xmlns:viewModel="clr-namespace:Modern_Real_Estate.ViewModel"
+             xmlns:model="clr-namespace:Modern_Real_Estate.Model" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="white">
+
+    <UserControl.DataContext>
+        <viewModel:ApartmentViewModel />
+    </UserControl.DataContext>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+
+            <DataGrid 
+                ItemsSource="{Binding estateManager.MyList}"
+                SelectedItem="{Binding SelectedEstate}"
+                CanUserAddRows="False" 
+                CanUserDeleteRows="False"
+                AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="2*"/>
+                    <DataGridTextColumn Header="Street name" Binding="{Binding StreetName}" Width="4*"/>
+                    <DataGridTextColumn Header="Zip code" Binding="{Binding ZipCode}" Width="4*"/>
+                    <DataGridTextColumn Header="City" Binding="{Binding City}" Width="4*"/>
+                    <DataGridTextColumn Header="Country" Binding="{Binding Country}" Width="4*"/>
+                    <DataGridTextColumn Header="Rooms" Binding="{Binding Rooms}" Width="4*"/>
+                    <DataGridTextColumn Header="Square metre" Binding="{Binding SqrM}" Width="4*"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="4*"/>
+                    <DataGridTextColumn Header="Image" Binding="{Binding Image}" Width="4*"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="4*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+
+
+            <StackPanel Grid.Column="1">
+                <Label Content="Street name" />
+                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueStreetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Zip code" />
+                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="City" />
+                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Country" />
+                <ComboBox ItemsSource="{Binding Countries}"
+                          SelectedItem="{Binding selectedCountry}"
+                          Text="{Binding TextBoxValueCountry, Mode=TwoWay}" />
+                <Label Content="Rooms" />
+                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueRooms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Square metre" />
+                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueSqrM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Price" />
+                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValuePrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Delete"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding DeleteCommand}" />
+                    <Button Content="Save"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding SaveCommand}" />
+                    <Button Content="Add"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding AddCommand}" />
+                    <Button Content="Clear"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding ClearCommand}" />
+
+                </StackPanel>
+                <StackPanel>
+                    <Button Content="Välj bild" Command="{Binding ImagePickerCommand}" Margin="0,10,0,0" />
+                    <Image Width="300" Height="300" Source="{Binding SelectedImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,-1,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
