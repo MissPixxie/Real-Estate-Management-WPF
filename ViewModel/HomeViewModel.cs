@@ -20,6 +20,8 @@ namespace Modern_Real_Estate.ViewModel
     public class HomeViewModel : ViewModelBase
     {
         public EstateManager estateManager { get; set; }
+
+        public string SelectedIndex { get; set; }
         private string fileName = Environment.CurrentDirectory + "\\estateList.dat";  //file at Application directory
         private string xmlFileName = Environment.CurrentDirectory + "\\estateList.xml";  //(file for testi
         //private string filePath = Environment.CurrentDirectory + @"\estateList.xml";
@@ -60,9 +62,7 @@ namespace Modern_Real_Estate.ViewModel
 
         public HomeViewModel()
         {
-            //Estate apartment = new Apartment("hej", 2222, "stad", "land", 3, 73, 5000);
 
-            //estateManager.Add(apartment);
         }
 
         private Estate _selectedEstate;

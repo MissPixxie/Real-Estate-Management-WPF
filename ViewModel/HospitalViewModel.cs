@@ -121,7 +121,7 @@ namespace Modern_Real_Estate.ViewModel
                 TextBoxValuePrice
             );
 
-            EstateList.Create(newEstate);
+            estateManager.Add(newEstate);
 
             UpdateTextBoxValues();
 

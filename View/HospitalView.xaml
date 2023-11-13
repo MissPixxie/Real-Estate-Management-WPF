@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
 
             <DataGrid 
-                ItemsSource="{Binding Estates.Estates}"
+                ItemsSource="{Binding estateManager.MyList}"
                 SelectedItem="{Binding SelectedEstate}"
                 CanUserAddRows="False" 
                 CanUserDeleteRows="False"

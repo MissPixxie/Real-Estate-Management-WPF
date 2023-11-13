@@ -38,8 +38,6 @@ namespace Modern_Real_Estate.Model
             }
         }
 
-        public abstract int this[int index] { get; set; }
-
         public Estate()
         {
             _nextId++;
