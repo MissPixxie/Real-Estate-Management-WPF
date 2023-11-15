@@ -44,7 +44,7 @@ namespace Modern_Real_Estate.Model
             /// <param name="aType">Object to be replaced.</param>
             /// <param name="anIndex">index to element to be replaced by a new object.</param>
             /// <returns>True if successful, false otherwise.</returns>
-            void ChangeAt(T aType, int anIndex);
+            bool ChangeAt(T aType, int anIndex);
 
             /// <summary>
             /// Return an object at a given position from the collection m_list.

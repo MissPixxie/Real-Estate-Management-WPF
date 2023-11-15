@@ -25,8 +25,9 @@
             </Grid.ColumnDefinitions>
 
             <DataGrid 
-                ItemsSource="{Binding Estates.Estates}"
+                ItemsSource="{Binding estateManager.MyList}"
                 SelectedItem="{Binding SelectedEstate}"
+                SelectedIndex="{Binding SelectedIndex}"
                 CanUserAddRows="False" 
                 CanUserDeleteRows="False"
                 AutoGenerateColumns="False">

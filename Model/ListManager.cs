@@ -31,18 +31,6 @@ namespace Modern_Real_Estate.Model
 
         public int Count { get; }
 
-        //public override int this[int index]
-        //{
-        //    get => _myList[index];
-        //    set
-        //}
-
-        //public T this[int index]
-        //{
-        //    get => _myList[index];
-        //    set => _myList[index] = value;
-        //}
-
         // Responsibility add item på list
         public bool Add(T aType)
         {
@@ -65,12 +53,24 @@ namespace Modern_Real_Estate.Model
             }
         }
 
-        public void ChangeAt(T aType, int index)
+        public bool ChangeAt(T aType, int index)
         {
-            if(CheckIndex(index) && (aType != null))
+            string errorMsg = null;
+
+            try
             {
-                _myList.ChangeAt( aType, index);
+                if (CheckIndex(index) && (aType != null))
+                {
+                    _myList.ChangeAt(aType, index);
+                    return true;
+                }
             }
+            catch ( Exception ex)
+            {
+                errorMsg = ex.Message;
+             
+            }
+            return false;
         }
 
         public T GetAt(int index)

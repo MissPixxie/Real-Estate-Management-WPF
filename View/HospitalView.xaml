@@ -26,6 +26,7 @@
             <DataGrid 
                 ItemsSource="{Binding estateManager.MyList}"
                 SelectedItem="{Binding SelectedEstate}"
+                SelectedIndex="{Binding SelectedIndex}"
                 CanUserAddRows="False" 
                 CanUserDeleteRows="False"
                 AutoGenerateColumns="False">

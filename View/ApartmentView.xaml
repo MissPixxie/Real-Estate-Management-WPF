@@ -33,9 +33,6 @@
                 CanUserAddRows="False" 
                 CanUserDeleteRows="False"
                 AutoGenerateColumns="False">
-                <DataGrid.ItemBindingGroup>
-                    <BindingGroup/>
-                </DataGrid.ItemBindingGroup>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="2*"/>
                     <DataGridTextColumn Header="Street name" Binding="{Binding StreetName}" Width="4*"/>

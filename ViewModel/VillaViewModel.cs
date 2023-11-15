@@ -100,7 +100,7 @@ namespace Modern_Real_Estate.ViewModel
 
 
         private Estate _selectedEstate;
-        public Estate SelectedEstate
+        public Estate? SelectedEstate
         {
             get { return _selectedEstate; }
             set
@@ -112,6 +112,25 @@ namespace Modern_Real_Estate.ViewModel
                     UpdateTextBoxValues();
                 }
             }
+        }
+
+        private int _selectedIndex;
+        public int SelectedIndex
+        {
+
+            get { return _selectedIndex; }
+            set
+            {
+                _selectedIndex = value;
+                OnPropertyChanged(nameof(SelectedIndex));
+                UpdateTextBoxValues();
+
+            }
+        }
+
+        public void Reset()
+        {
+            SelectedEstate = null;
         }
 
         private Estate _selectedTextBoxValue;
@@ -143,15 +162,19 @@ namespace Modern_Real_Estate.ViewModel
                 TextBoxValuePrice
             );
 
-            EstateList.Create(newEstate);
+            estateManager.Add(newEstate);
 
             UpdateTextBoxValues();
+            Reset();
 
         }
 
         public void DeleteEstate()
         {
-            EstateList.Delete(SelectedEstate);
+            if (SelectedEstate != null)
+            {
+                estateManager.DeleteAt(SelectedIndex);
+            }
         }
 
         public void UpdateEstate()
@@ -160,7 +183,6 @@ namespace Modern_Real_Estate.ViewModel
             {
                 if (SelectedImage != null)
                 {
-                    // Om en bild har valts, konvertera den till en byte-array för lagring (om det är din avsikt) eller hantera den på annat sätt
                     JpegBitmapEncoder encoder = new JpegBitmapEncoder();
                     encoder.Frames.Add(BitmapFrame.Create((BitmapSource)SelectedImage));
 
@@ -168,17 +190,31 @@ namespace Modern_Real_Estate.ViewModel
                     {
                         encoder.Save(memoryStream);
                         byte[] imageBytes = memoryStream.ToArray();
-
-                        // Lagra imageBytes på rätt ställe, t.ex., i din Estate-objekt om du vill
-                        // SelectedEstate.ImageBytes = imageBytes; // Antag att du har en ImageBytes-egenskap i ditt Estate-objekt
                     }
                 }
-                var isUpdated = EstateList.Update(SelectedEstate, TextBoxValueStreetName, TextBoxValueZipCode, TextBoxValueCity, TextBoxValueCountry, TextBoxValueArea, imageBytes, TextBoxValueRooms, TextBoxValueSqrM, TextBoxValuePrice);
+
+                Estate newEstate = new Villa(
+                   TextBoxValueStreetName,
+                   TextBoxValueZipCode,
+                   TextBoxValueCity,
+                   TextBoxValueCountry,
+                   TextBoxValueArea,
+                   TextBoxValueRooms,
+                   TextBoxValueSqrM,
+                   TextBoxValuePrice
+               );
+
+                var isUpdated = estateManager.ChangeAt(newEstate, SelectedIndex);
                 if (isUpdated)
                 {
-                    OnPropertyChanged(nameof(EstateManager));
+                    OnPropertyChanged(nameof(estateManager));
                 }
             }
+        }
+
+        public void ClearAll()
+        {
+            estateManager.DeleteAll();
         }
 
         private bool CanSave()
