@@ -123,20 +123,6 @@ namespace Modern_Real_Estate.ViewModel
             }
         }
 
-        private int _selectedIndex;
-        public int SelectedIndex
-        {
-
-            get { return _selectedIndex; }
-            set
-            {
-                _selectedIndex = value;
-                OnPropertyChanged(nameof(SelectedIndex));
-                UpdateTextBoxValues();
-
-            }
-        }
-
         public void Reset()
         {
             SelectedEstate = null;
@@ -181,8 +167,15 @@ namespace Modern_Real_Estate.ViewModel
         {
             if (SelectedEstate != null)
             {
-                estateManager.DeleteAt(SelectedIndex);
+                int selectedIndex = EstateManager.MyList.IndexOf(SelectedEstate);
+                estateManager.DeleteAt(selectedIndex);
             }
+        }
+
+        private int _selectedIndex;
+        public int SelectedIndex
+        {
+            get { return _selectedIndex = EstateManager.MyList.IndexOf(SelectedEstate); }
         }
 
         public void UpdateEstate()
@@ -211,7 +204,7 @@ namespace Modern_Real_Estate.ViewModel
                    TextBoxValuePrice
                );
 
-                var isUpdated = estateManager.ChangeAt(newEstate, SelectedIndex); 
+                var isUpdated = estateManager.ChangeAt(newEstate, _selectedIndex); 
                 if (isUpdated) 
                 {
                     OnPropertyChanged(nameof(estateManager));

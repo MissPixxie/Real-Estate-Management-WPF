@@ -20,13 +20,13 @@ namespace Modern_Real_Estate.Model
     {
 
         private static ObservableList<T> _myList = new ObservableList<T>();
+        public static ObservableList<T> MyList { get { return _myList; } }
+
         //private static ObservableCollection<T> _myList = new();
 
         //public ObservableList<string> StringList { get; set; }
 
         private ObservableList<string> _stringList = new ObservableList<string>();
-
-        public static ObservableList<T> MyList { get { return _myList; } }
         public ObservableList<string> StringList { get { return _stringList; } }
 
         public int Count { get; }
@@ -85,7 +85,7 @@ namespace Modern_Real_Estate.Model
 
         public bool CheckIndex(int index)
         {
-            if (index >= 0 || index <= _myList.Count)
+            if (index >= 0 && index <= _myList.Count)
             {
                 return true;
             }

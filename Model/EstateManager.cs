@@ -11,7 +11,7 @@ namespace Modern_Real_Estate.Model
 {
    public class EstateManager : ListManager<Estate>
     {
-        private static EstateManager instance;
+        private static EstateManager? instance;
 
         private EstateManager() { }
 
