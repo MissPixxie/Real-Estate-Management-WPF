@@ -29,7 +29,7 @@ namespace Modern_Real_Estate.ViewModel
         public int TextBoxValueRooms { get; set; }
         public int TextBoxValueSqrM { get; set; }
         public string TextBoxValueType { get; }
-        public double TextBoxValuePrice { get; set; }
+        public decimal TextBoxValuePrice { get; set; }
 
 
         public RelayCommand AddCommand => new RelayCommand(execute => AddEstate());

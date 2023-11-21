@@ -15,7 +15,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
         }
 
         public Warehouse() { }
-        public Warehouse(string streetName, int zipCode, string city, string country, int area, double price)
+        public Warehouse(string streetName, int zipCode, string city, string country, int area, decimal price)
         {
             StreetName = streetName;
             ZipCode = zipCode;
@@ -27,11 +27,11 @@ namespace Modern_Real_Estate.Model.EstateTypes
 
 
 
-        public override double CalculatePrice(double price)
+        public override decimal CalculatePrice(decimal price)
         {
-            double vat = price * 0.25;
+            decimal vat = price * 0.25m;
 
-            return price + vat;
+            return Math.Floor(price + vat);
         }
     }
 }

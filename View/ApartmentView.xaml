@@ -7,8 +7,7 @@
              xmlns:viewModel="clr-namespace:Modern_Real_Estate.ViewModel"
              xmlns:model="clr-namespace:Modern_Real_Estate.Model" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Background="white">
+             d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.DataContext>
         <viewModel:ApartmentViewModel />

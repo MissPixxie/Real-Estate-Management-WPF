@@ -8,8 +8,7 @@
              xmlns:viewModel="clr-namespace:Modern_Real_Estate.ViewModel"
              xmlns:model="clr-namespace:Modern_Real_Estate.Model" 
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="900"
-             Background="white">
+             d:DesignHeight="550" d:DesignWidth="900" Foreground="White">
     <UserControl.DataContext>
         <viewModel:HomeViewModel />
     </UserControl.DataContext>
@@ -20,21 +19,25 @@
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
-            
+
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
             <DataGrid
-                ItemsSource="{Binding estateManager.MyList}"
+                ItemsSource="{Binding EstateManager.MyList}"
                 SelectedItem="{Binding SelectedEstate}"
                 CanUserAddRows="False" 
                 CanUserDeleteRows="False"
                 AutoGenerateColumns="False"
                 Grid.Column="0"
                 Grid.Row="0"
-                Margin="0, 0, 0, 0">
+                Grid.ColumnSpan="2"
+                Grid.RowSpan="1"
+                Margin="0, 0, 0, 0"
+                Style="{StaticResource CustomGrid}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="2*"/>
                     <DataGridTextColumn Header="Street name" Binding="{Binding StreetName}" Width="4*"/>
@@ -43,17 +46,49 @@
                     <DataGridTextColumn Header="Country" Binding="{Binding Country}" Width="4*"/>
                     <DataGridTextColumn Header="Rooms" Binding="{Binding Rooms}" Width="4*"/>
                     <DataGridTextColumn Header="Squre meter" Binding="{Binding SqrM}" Width="4*"/>
-                    <DataGridTextColumn Header="Squre meter" Binding="{Binding Type}" Width="4*"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="4*"/>
+                    <DataGridTextColumn Header="Image" Binding="{Binding Image}" Width="4*"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0, 25, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" Margin="0,50,0,0" >
-                <Button Content="Add" Grid.Column="1" Width="90" Height="30" Margin="0, 0, 5, 0" Command="{Binding AddCommand}" />
-                <Button Content="Delete" Grid.Column="1" Width="90" Height="30" Margin="0, 0, 5, 0" Command="{Binding DeleteCommand}" />
-                <Button Content="Save" Grid.Column="1" Width="90" Height="30" Margin="0, 0, 5, 0" Command="{Binding SaveCommand}" />
-                <Button Content="Clear" Grid.Column="1" Width="90" Height="30" Margin="0, 0, 5, 0" Command="{Binding ClearCommand}" />
-            </StackPanel>
-
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Id" Grid.Row="0" Grid.Column="0" />
+                <TextBlock Text="{Binding TextBoxValueId}" Grid.Row="0" Grid.Column="1" />
+                <Separator Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
+                <TextBlock Text="Street name" Grid.Row="1" Grid.Column="0" />
+                <TextBlock Text="{Binding TextBoxValueStreetName}" Grid.Row="1" Grid.Column="1" />
+                <Separator Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
+                <TextBlock Text="Zipcode" Grid.Row="2" Grid.Column="0" />
+                <TextBlock Text="{Binding TextBoxValueZipCode}" Grid.Row="2" Grid.Column="1" />
+                <Separator Grid.Row="2"  Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
+                <TextBlock Text="City" Grid.Row="3" Grid.Column="0" />
+                <TextBlock Text="{Binding TextBoxValueCity}" Grid.Row="3" Grid.Column="1" />
+                <Separator Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
+                <TextBlock Text="Country" Grid.Row="4" Grid.Column="0" />
+                <TextBlock Text="{Binding TextBoxValueCountry}" Grid.Row="4" Grid.Column="1" />
+                <Separator Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
+                <TextBlock Text="Area" Grid.Row="5" Grid.Column="0" />
+                <TextBlock Text="{Binding TextBoxValueArea}" Grid.Row="5" Grid.Column="1" />
+                <Separator Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
+                <TextBlock Text="Price" Grid.Row="6" Grid.Column="0" />
+                <TextBlock Text="{Binding TextBoxValuePrice}" Grid.Row="6" Grid.Column="1" />
+                <Separator Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
+                <TextBlock Text="{Binding Image}" />
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

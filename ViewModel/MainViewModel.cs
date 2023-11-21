@@ -81,6 +81,7 @@ namespace Modern_Real_Estate.ViewModel
 
         public MainViewModel()
         {
+            estateManager = EstateManager.GetInstance();
             //fileHandler = new FileHandler();
 
             //fileHandler.CreateFile(estateManager);
@@ -179,12 +180,10 @@ namespace Modern_Real_Estate.ViewModel
             {
                 string fileName = saveFileDialog.FileName;
                 //estateManager.XMLSerialize(fileName);
-                estateManager.Serialize(fileName);
-                //using (FileStream fs = new FileStream(fileName, FileMode.Create))
-                //{
-                //    BinaryFormatter binaryFormatter = new BinaryFormatter();
-                //    binaryFormatter.Serialize(fs, fileContent);
-                //}
+                if (estateManager.Serialize(fileName))
+                {
+                    MessageBox.Show("File have successfully been saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

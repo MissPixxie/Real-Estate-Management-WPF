@@ -14,7 +14,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
             get { return "Villa"; }
         }
         public Villa() { }
-        public Villa(string streetName, int zipCode, string city, string country, int area, int rooms, int sqrM, double price)
+        public Villa(string streetName, int zipCode, string city, string country, int area, int rooms, int sqrM, decimal price)
         {
             StreetName = streetName;
             ZipCode = zipCode;
@@ -27,11 +27,11 @@ namespace Modern_Real_Estate.Model.EstateTypes
         }
 
 
-        public override double CalculatePrice(double price)
+        public override decimal CalculatePrice(decimal price)
         {
-            double vat = price * 0.12;
+            decimal vat = price * 0.12m;
 
-            return price + vat;
+            return Math.Floor(price + vat);
         }
 
     }

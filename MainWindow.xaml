@@ -6,16 +6,26 @@
         xmlns:local="clr-namespace:Modern_Real_Estate"
         xmlns:viewModel="clr-namespace:Modern_Real_Estate.ViewModel"
         xmlns:Model="clr-namespace:Modern_Real_Estate.Model"
-        xmlns:Menu="clr-namespace:Modern_Real_Estate.Utilities"
+        xmlns:Menu="clr-namespace:Modern_Real_Estate.Utilities" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         x:Class="Modern_Real_Estate.MainWindow"
         mc:Ignorable="d"
-        Title="Modern Real Estates by Emelie Hansson" Height="650" Width="1000">
-    <Window.DataContext>
-        <viewModel:MainViewModel />
-    </Window.DataContext>
+        Title="Modern Real Estates by Emelie Hansson" 
+        Height="650" 
+        Width="1000"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
+    <Border Background="#272537"
+            CornerRadius="20"
+            MouseDown="Grid_MouseMove">
+        <!--<Window.DataContext>
+        <viewModel:MainViewModel />
+    </Window.DataContext>-->
+
+        <Grid Style="{StaticResource MainGrid}">
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="240"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -23,10 +33,29 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-
         </Grid.RowDefinitions>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <materialDesign:PackIcon
+                     Kind="WindowMinimize" 
+                     Width="30" 
+                     Height="30" 
+                     Foreground="white" 
+                     HorizontalAlignment="Right"
+                     Margin="40, 0, 10, 10"
+                     MouseLeftButtonDown="Minimize_icon"/>                    
+
+            <materialDesign:PackIcon
+                Kind="CloseBold" 
+                Width="30" 
+                Height="30" 
+                Foreground="white" 
+                HorizontalAlignment="Right"
+                Margin="0, 0, 10, 10"
+                MouseLeftButtonDown="Close_icon"/>               
+            </StackPanel>
+
+            <DockPanel LastChildFill="False">
+            <Menu DockPanel.Dock="Top" Margin="0, 30, 0, 0">
                 <MenuItem Header="_File">
                     <MenuItem Header="_New" Command="{Binding MenuItem_New}"/>
                     <MenuItem Header="_Open" Command="{Binding MenuItem_Open}"/>
@@ -36,7 +65,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <StackPanel Grid.Row="0" Grid.RowSpan="2">
+        <StackPanel Grid.Row="0" Grid.RowSpan="3" Margin="0, 80, 0, 0">
             <RadioButton Name="Home"  
                          Height="40" 
                          Margin="0, 0, 5, 0" 
@@ -85,8 +114,10 @@
                          Style="{StaticResource ButtonStyle}"/>
         </StackPanel>
 
-        <ContentControl Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Content="{Binding CurrentView}"/>
-        <!--<TextBox Grid.Column="2" Grid.Row="3" Text="{Binding MyList}" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>-->
+        <ContentControl Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Content="{Binding CurrentView}" Margin="0, 30, 0, 0"/>
+            <!--<TextBox Grid.Column="2" Grid.Row="3" Text="{Binding MyList}" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>-->
 
     </Grid>
+
+    </Border>
 </Window>

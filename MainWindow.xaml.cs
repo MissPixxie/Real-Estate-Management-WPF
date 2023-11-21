@@ -24,5 +24,29 @@ namespace Modern_Real_Estate
             InitializeComponent();
             DataContext = new MainViewModel();
         }
+
+        private void Grid_MouseMove( object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed )
+            {
+                this.DragMove();
+            }
+        }
+
+        private void Close_icon(object sender, MouseButtonEventArgs e)
+        {
+            if ( e.LeftButton == MouseButtonState.Pressed )
+            {
+                this.Close();
+            }
+        }
+
+        private void Minimize_icon(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.WindowState = WindowState.Minimized;
+            }
+        }
     }
 }

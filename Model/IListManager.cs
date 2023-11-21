@@ -79,7 +79,7 @@ namespace Modern_Real_Estate.Model
             string[] ToStringArray();
             #endregion
 
-            void Serialize(string fileName);
+            bool Serialize(string fileName);
             void DeSerialize(string fileName);
             void XMLSerialize(string fileName);
             void XMLDeSerialize(string fileName);

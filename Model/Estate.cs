@@ -103,8 +103,8 @@ namespace Modern_Real_Estate.Model
             }
         }
 
-        private double _price;
-        public double Price
+        private decimal _price;
+        public decimal Price
         {
             get { return _price; }
             set
@@ -125,7 +125,7 @@ namespace Modern_Real_Estate.Model
             }
         }
 
-        public abstract double CalculatePrice(double price);
+        public abstract decimal CalculatePrice(decimal price);
 
         public override string ToString()
         {

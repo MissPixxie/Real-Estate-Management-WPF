@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:Modern_Real_Estate.View"
              xmlns:viewModel="clr-namespace:Modern_Real_Estate.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Background="white">
+             d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <viewModel:WarehouseViewModel />
     </UserControl.DataContext>

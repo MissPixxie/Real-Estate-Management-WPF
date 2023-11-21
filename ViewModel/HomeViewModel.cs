@@ -19,93 +19,112 @@ namespace Modern_Real_Estate.ViewModel
 {
     public class HomeViewModel : ViewModelBase
     {
-        public EstateManager estateManager { get; set; }
+        public EstateManager EstateManager { get; set; }
 
-        public string SelectedIndex { get; set; }
-        private string fileName = Environment.CurrentDirectory + "\\estateList.dat";  //file at Application directory
-        private string xmlFileName = Environment.CurrentDirectory + "\\estateList.xml";  //(file for testi
-        //private string filePath = Environment.CurrentDirectory + @"\estateList.xml";
+        public ObservableCollection<string>? Countries { get; set; }
 
-        // public List<string> StringsList { get; set; }
+        //private string fileName = Environment.CurrentDirectory + "\\estateList.dat";
+        //private string xmlFileName = Environment.CurrentDirectory + "\\estateList.xml";
 
-        //public string EstateList { get; set; }
-
-
-        //public EstateList Estates { get; set; }
-        //public ObservableCollection<Apartment> Apartments { get; set; }
-        //public ObservableCollection<Hospital> Hospitals { get; set; }
-        //public ObservableCollection<SchoolViewModel> Schools { get; set; }
-        //public ObservableCollection<Shop> Shops { get; set; }
-        //public ObservableCollection<TownhouseViewModel> Townhouses { get; set; }
-        //public ObservableCollection<UniversityViewModel> Universitys { get; set; }
-        //public ObservableCollection<VillaViewModel> Villas { get; set; }
-        //public ObservableCollection<WarehouseViewModel> Warehouses { get; set; }
-        //public ObservableCollection<string> Countries { get; set; }
-
-
-        //public string ApartmentList { get; set; }
-        //public string HospitalList { get; set; }
-        //public string SchoolList { get; set; }
-        //public string ShopList { get; set; }
-        //public string TownhouseList { get; set; }
-        //public string UniversityList { get; set; }
-        //public string VillaList { get; set; }
-        //public string WarehouseList { get; set; }
-
-        public RelayCommand AddCommand => new RelayCommand(execute => AddEstate());
-        public RelayCommand DeleteCommand => new RelayCommand(execute => DeleteEstate());
-        public RelayCommand SaveCommand => new RelayCommand(execute => SaveEstate());
-        public RelayCommand ClearCommand => new RelayCommand(execute => ClearEstate());
-
-      
-
+        public int? TextBoxValueId { get; set; }
+        public string? TextBoxValueStreetName { get; set; }
+        public int? TextBoxValueZipCode { get; set; }
+        public string? TextBoxValueCity { get; set; }
+        public string? TextBoxValueCountry { get; set; }
+        public int? TextBoxValueArea { get; set; }
+        public int? TextBoxValueRooms { get; set; } 
+        public int? TextBoxValueSqrM { get; set; } 
+        public string? TextBoxValueType { get; }
+        public decimal? TextBoxValuePrice { get; set; }
 
         public HomeViewModel()
         {
-
+            EstateManager = EstateManager.GetInstance();
         }
 
-        private Estate _selectedEstate;
-        public Estate SelectedEstate
+        private string? _selectedCountry;
+        public string? SelectedCountry
+        {
+            get { return _selectedCountry; }
+            set
+            {
+                _selectedCountry = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public void SetCountry()
+        {
+            foreach (string countryName in Enum.GetNames(typeof(Countries)))
+            {
+                Countries.Add(countryName);
+            }
+        }
+
+        private void UpdateTextBoxValues()
+        {
+            TextBoxValueId = _selectedEstate.Id;
+            TextBoxValueStreetName = _selectedEstate?.StreetName ?? "";
+            TextBoxValueZipCode = _selectedEstate?.ZipCode ?? 0;
+            TextBoxValueCity = _selectedEstate?.City ?? "";
+            TextBoxValueCountry = _selectedEstate?.Country ?? "";
+            TextBoxValueArea = _selectedEstate?.Area ?? 0;
+            TextBoxValuePrice = _selectedEstate?.Price ?? 0;
+            if (_selectedEstate is Residential townhouse)
+            {
+                TextBoxValueArea = townhouse.SqrM;
+                TextBoxValueRooms = townhouse.Rooms;
+                TextBoxValueSqrM = townhouse.SqrM;
+            }
+            else
+            {
+                TextBoxValueRooms = 0;
+                TextBoxValueSqrM = 0;
+            }
+
+            OnPropertyChanged(nameof(TextBoxValueId));
+            OnPropertyChanged(nameof(TextBoxValueStreetName));
+            OnPropertyChanged(nameof(TextBoxValueZipCode));
+            OnPropertyChanged(nameof(TextBoxValueCity));
+            OnPropertyChanged(nameof(TextBoxValueCountry));
+            OnPropertyChanged(nameof(TextBoxValueArea));
+            OnPropertyChanged(nameof(TextBoxValueRooms));
+            OnPropertyChanged(nameof(TextBoxValueSqrM));
+            OnPropertyChanged(nameof(TextBoxValuePrice));
+        }
+
+
+        private Estate? _selectedEstate = null;
+        public Estate? SelectedEstate
         {
             get { return _selectedEstate; }
             set
             {
-                if (_selectedEstate != value)
+                _selectedEstate = value;
+                OnPropertyChanged(nameof(SelectedEstate));
+                UpdateTextBoxValues();
+            }
+        }
+
+        public void Reset()
+        {
+            SelectedEstate = null;
+        }
+
+
+        private Estate? _selectedTextBoxValue;
+        public Estate? SelectedTextBoxValue
+        {
+            get { return _selectedTextBoxValue; }
+            set
+            {
+                if (_selectedTextBoxValue != value)
                 {
-                    _selectedEstate = value;
-                    OnPropertyChanged(nameof(SelectedEstate));
+                    _selectedTextBoxValue = value;
+                    OnPropertyChanged(nameof(SelectedTextBoxValue));
+                    UpdateTextBoxValues();
                 }
             }
-        }
-
-        public void AddEstate()
-        {
-
-            Estate apartment = new Apartment("hej", 2222, "stad", "land", 3, 73, 5000);
-
-            estateManager.Add(apartment);
-
-        }
-
-        public void DeleteEstate()
-        {
-            if (SelectedEstate != null)
-            {
-                estateManager.DeleteAt(SelectedEstate.Id);
-            }
-        }
-
-        public void SaveEstate()
-        {
-            estateManager.ChangeAt(SelectedEstate, 0);
-
-        }
-
-
-        public void ClearEstate()
-        {
-            estateManager.DeleteAll();
         }
 
         // switch case apartment...... or residential

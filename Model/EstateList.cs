@@ -56,7 +56,7 @@ namespace Modern_Real_Estate.Model
         }
 
 
-        public static bool Update(Estate estate, string? streetName = null, int? zipCode = null, string? city = null, string? country = null, int? area = null, byte[]? selectedImage = null, int? rooms = null, int? sqrM = null, double? price = null)
+        public static bool Update(Estate estate, string? streetName = null, int? zipCode = null, string? city = null, string? country = null, int? area = null, byte[]? selectedImage = null, int? rooms = null, int? sqrM = null, int? price = null)
         {
             int IdToFind = estate.Id;
 
@@ -108,7 +108,7 @@ namespace Modern_Real_Estate.Model
             return true;
 
         }
-        public static bool Update(Estate estate, string streetName, int zipCode, string city, string country, int? area = null, double? price = null)
+        public static bool Update(Estate estate, string streetName, int zipCode, string city, string country, int? area = null, int? price = null)
         {
             int IdToFind = estate.Id;
 

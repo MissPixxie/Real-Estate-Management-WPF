@@ -36,7 +36,7 @@ namespace Modern_Real_Estate.ViewModel
         public int TextBoxValueRooms { get; set; } = 0;
         public int TextBoxValueSqrM { get; set; } = 0;
         public string TextBoxValueType { get; }
-        public double TextBoxValuePrice { get; set; } = 0;
+        public decimal TextBoxValuePrice { get; set; } = 0;
         //public double TextBoxValueVATPrice { get; set; }
 
 

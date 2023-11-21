@@ -12,7 +12,7 @@
         <ResourceDictionary>
             
             <ResourceDictionary.MergedDictionaries>
-                
+                <ResourceDictionary Source="Utilities/Style/DataGridStyle.xaml" />
                 <ResourceDictionary Source="Utilities/Style/ButtonStyle.xaml" />
                 <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
 

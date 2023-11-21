@@ -14,7 +14,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
             get { return "University"; }
         }
         public University() { }
-        public University(string streetName, int zipCode, string city, string country, int area, double price)
+        public University(string streetName, int zipCode, string city, string country, int area, decimal price)
         {
             StreetName = streetName;
             ZipCode = zipCode;
@@ -25,11 +25,11 @@ namespace Modern_Real_Estate.Model.EstateTypes
         }
 
 
-        public override double CalculatePrice(double price)
+        public override decimal CalculatePrice(decimal price)
         {
-            double vat = price * 0.25;
+            decimal vat = price * 0.25m;
 
-            return price + vat;
+            return Math.Floor(price + vat);
         }
     }
 }

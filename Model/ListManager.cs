@@ -122,17 +122,19 @@ namespace Modern_Real_Estate.Model
             return arrayList;
         }
 
-        public void Serialize(string filePath)
+        public bool Serialize(string filePath)
         {
             string errorMsg = null;
             try
             {
                 string? jsonString = JsonConvert.SerializeObject(_myList, options);
                 File.WriteAllText(filePath, jsonString);
+                return true;
             }
             catch (Exception ex)
             {
                 errorMsg = ex.Message;
+                return false;
             }
         }
 

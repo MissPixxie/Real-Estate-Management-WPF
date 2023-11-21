@@ -15,7 +15,7 @@ namespace Modern_Real_Estate.Model
         string City { get; set; }
         string Country { get; set; }
         int Area { get; set; }
-        double Price { get; set; }
+        decimal Price { get; set; }
         public byte[]? Image { get; set; }
 
 

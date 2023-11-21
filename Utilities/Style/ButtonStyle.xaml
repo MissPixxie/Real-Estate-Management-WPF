@@ -15,8 +15,9 @@
                               Background="{TemplateBinding Background}">
                             <TextBlock Text="{TemplateBinding Name}"
                                        VerticalAlignment="Center"
-                                       Margin="40, 0, 0, 0"/>
-
+                                       Margin="40, 0, 0, 0"
+                                       Foreground="white"
+                                       FontSize="18"/>
 
                         </Grid>
                     </ControlTemplate>
@@ -28,6 +29,9 @@
         </Style.Setters>
 
         <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="pink" />
+            </Trigger>
             <Trigger Property="IsChecked" Value="true">
                 <Setter Property="Background" Value="#acd3e3" />
             </Trigger>
