@@ -1,4 +1,4 @@
-School project, a real estate manegment application made with WPF
+School project, a real estate management application made with WPF
 
 ![1](https://github.com/MissPixxie/Real-Estate-Management-WPF/assets/78534885/8b8b8f10-a8bc-4466-bb47-4ea176e928b4)
 
