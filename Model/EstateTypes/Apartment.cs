@@ -11,11 +11,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
 {
     public class Apartment : Residential
     {
-        private string _subType;
-        public string SubType
-        {
-            get { return "Apartment"; }
-        }
+        public static string SubType => "Apartment";
 
         public Apartment(string streetName, int zipCode, string city, string country, int rooms, int sqrM, decimal price)
         {

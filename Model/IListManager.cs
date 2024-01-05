@@ -30,28 +30,28 @@ namespace Modern_Real_Estate.Model
             /// <returns>True if successful, false otherwise.</returns>
              bool Add(T aType);
 
-            /// <summary>
-            /// Remove an object from the collection m_list at
-            /// a given position.
-            /// </summary>
-            /// <param name="anIndex">Index to object that is to be removed.</param>
-            /// <returns>True if successful, false otherwise.</returns>
-            void DeleteAt(int anIndex);
+        /// <summary>
+        /// Remove an object from the collection m_list at
+        /// a given position.
+        /// </summary>
+        /// <param name="index">Index to object that is to be removed.</param>
+        /// <returns>True if successful, false otherwise.</returns>
+        void DeleteAt(int index);
 
-            /// <summary>
-            /// Replace an object from the collection at a given index by a new object.
-            /// </summary>
-            /// <param name="aType">Object to be replaced.</param>
-            /// <param name="anIndex">index to element to be replaced by a new object.</param>
-            /// <returns>True if successful, false otherwise.</returns>
-            bool ChangeAt(T aType, int anIndex);
+        /// <summary>
+        /// Replace an object from the collection at a given index by a new object.
+        /// </summary>
+        /// <param name="aType">Object to be replaced.</param>
+        /// <param name="index">index to element to be replaced by a new object.</param>
+        /// <returns>True if successful, false otherwise.</returns>
+        bool ChangeAt(T aType, int index);
 
-            /// <summary>
-            /// Return an object at a given position from the collection m_list.
-            /// </summary>
-            /// <param name="anIndex">.</param>
-            /// <returns></returns>
-            T GetAt(int anIndex);
+        /// <summary>
+        /// Return an object at a given position from the collection m_list.
+        /// </summary>
+        /// <param name="index">.</param>
+        /// <returns></returns>
+        T GetAt(int index);
 
             /// <summary>
             /// Control that a given index is >= 0 and less than the number of items in 

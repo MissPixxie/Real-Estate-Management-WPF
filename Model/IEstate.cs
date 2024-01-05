@@ -14,10 +14,11 @@ namespace Modern_Real_Estate.Model
         int ZipCode { get; set; }
         string City { get; set; }
         string Country { get; set; }
+        int SqrM { get; set; }
+        bool IsRental { get; set; }
         int Area { get; set; }
         decimal Price { get; set; }
         public byte[]? Image { get; set; }
-
 
     }
 

@@ -17,13 +17,8 @@ namespace Modern_Real_Estate.Model
 {
     [Serializable]
     [XmlInclude(typeof(Apartment))]
-    [XmlInclude(typeof(Hospital))]
-    [XmlInclude(typeof(School))]
-    [XmlInclude(typeof(Shop))]
     [XmlInclude(typeof(Townhouse))]
-    [XmlInclude(typeof(University))]
     [XmlInclude(typeof(Villa))]
-    [XmlInclude(typeof(Warehouse))]
     public abstract class Estate : ObservableObject, IEstate, IComparable<Estate>
     {
 
@@ -38,14 +33,14 @@ namespace Modern_Real_Estate.Model
             }
         }
 
-        public Estate()
+        protected Estate()
         {
             _nextId++;
             _id = _nextId;
         }
 
 
-        private string _streetName;
+        private string _streetName = "";
         public string StreetName
         {
             get { return _streetName; }
@@ -57,7 +52,7 @@ namespace Modern_Real_Estate.Model
         }
 
 
-        private int _zipCode;
+        private int _zipCode = 0;
         public int ZipCode
         {
             get { return _zipCode; }
@@ -69,7 +64,7 @@ namespace Modern_Real_Estate.Model
         }
 
 
-        private string _city;
+        private string _city = "";
         public string City
         {
             get { return _city; }
@@ -81,7 +76,7 @@ namespace Modern_Real_Estate.Model
         }
 
 
-        private string _country;
+        private string _country = "";
         public string Country
         {
             get { return _country; }
@@ -91,6 +86,18 @@ namespace Modern_Real_Estate.Model
                 OnPropertyChanged(nameof(Country));
             }
         }
+        private int _sqrM;
+        public int SqrM
+        {
+            get { return _sqrM; }
+            set
+            {
+                _sqrM = value;
+                OnPropertyChanged(nameof(SqrM));
+            }
+        }
+
+        public bool IsRental { get; set; }
 
         private int _area;
         public int Area

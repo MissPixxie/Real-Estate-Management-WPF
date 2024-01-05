@@ -29,21 +29,6 @@ namespace Modern_Real_Estate.Utilities
                     case "Villa":
                         estate = item.ToObject<Villa>(serializer);
                         break;
-                    case "Hospital":
-                        estate = item.ToObject<Hospital>(serializer);
-                        break;
-                    case "School":
-                        estate = item.ToObject<School>(serializer);
-                        break;
-                    case "University":
-                        estate = item.ToObject<University>(serializer);
-                        break;
-                    case "Shop":
-                        estate = item.ToObject<Shop>(serializer);
-                        break;
-                    case "Warehouse":
-                        estate = item.ToObject<Warehouse>(serializer);
-                        break;
                 }
 
                 if (estate != null)

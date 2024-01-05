@@ -8,11 +8,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
 {
     public class Villa : Residential
     {
-        private string _subType;
-        public string SubType
-        {
-            get { return "Villa"; }
-        }
+        public static string SubType => "Villa";
         public Villa() { }
         public Villa(string streetName, int zipCode, string city, string country, int area, int rooms, int sqrM, decimal price)
         {

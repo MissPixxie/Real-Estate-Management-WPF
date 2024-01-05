@@ -10,14 +10,15 @@
         
         
         <ResourceDictionary>
-            
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Utilities/Style/DataGridStyle.xaml" />
                 <ResourceDictionary Source="Utilities/Style/ButtonStyle.xaml" />
+                <ResourceDictionary Source="Utilities/Style/DivButtons.xaml" />
+                <ResourceDictionary Source="Utilities/Style/StackPanelStyle.xaml" />
                 <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
-
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
         </ResourceDictionary>
         
         

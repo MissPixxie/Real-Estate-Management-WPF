@@ -5,7 +5,7 @@
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}" 
            TargetType="{x:Type RadioButton}"
                       x:Key="ButtonStyle">
-        
+
         <Style.Setters>
             <Setter Property="Template">
                 <Setter.Value>
@@ -30,15 +30,51 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="pink" />
+                <Setter Property="Background" Value="#36334d" />
             </Trigger>
             <Trigger Property="IsChecked" Value="true">
-                <Setter Property="Background" Value="#acd3e3" />
+                <Setter Property="Background" Value="#36334d" />
             </Trigger>
         </Style.Triggers>
-        
+
     </Style>
-    
-    
-    
+
+    <!--<Style BasedOn="{StaticResource {x:Type Button}}" 
+           TargetType="{x:Type RadioButton}"
+                      x:Key="DeleteButton">
+
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid VerticalAlignment="Stretch"
+                              HorizontalAlignment="Stretch"
+                              Background="{TemplateBinding Background}">
+                            <TextBlock Text="{TemplateBinding Name}"
+                                       VerticalAlignment="Center"
+                                       Margin="40, 0, 0, 0"
+                                       Foreground="white"
+                                       FontSize="18"/>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Background" Value="transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#36334d" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="true">
+                <Setter Property="Background" Value="#36334d" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>-->
+
+
 </ResourceDictionary>

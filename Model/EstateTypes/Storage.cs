@@ -6,27 +6,23 @@ using System.Threading.Tasks;
 
 namespace Modern_Real_Estate.Model.EstateTypes
 {
-    public class School : Institutional
+    public class Storage : Estate
     {
-        private string _subType;
-        public string SubType
-        {
-            get { return "School"; }
-        }
-        public School() { }
-        public School(string streetName, int zipCode, string city, string country, int area, decimal price)
+        public static string SubType => "Storage";
+
+        public Storage(string streetName, int zipCode, string city, string country, int sqrM, decimal price)
         {
             StreetName = streetName;
             ZipCode = zipCode;
             City = city;
             Country = country;
-            Area = area;
+            Area = sqrM;
             Price = CalculatePrice(price);
         }
 
         public override decimal CalculatePrice(decimal price)
         {
-            decimal vat = price * 0.25m;
+            decimal vat = price * 0.12m;
 
             return Math.Floor(price + vat);
         }

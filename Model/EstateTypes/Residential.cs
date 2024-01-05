@@ -17,11 +17,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
     [XmlInclude(typeof(Residential))]
     public abstract class Residential : Estate
     {
-        private string _type;
-        public string Type
-        {
-            get { return "Residential"; }
-        }
+        public static string Type => "Residential";
 
         private int _rooms;
         public int Rooms
@@ -31,18 +27,6 @@ namespace Modern_Real_Estate.Model.EstateTypes
             {
                 _rooms = value;
                 OnPropertyChanged(nameof(Rooms));
-            }
-        }
-
-
-        private int _sqrM;
-        public int SqrM
-        {
-            get { return _sqrM; }
-            set
-            {
-                _sqrM = value;
-                OnPropertyChanged(nameof(SqrM));
             }
         }
     }

@@ -7,12 +7,14 @@
              xmlns:local="clr-namespace:Modern_Real_Estate.View"
              xmlns:viewModel="clr-namespace:Modern_Real_Estate.ViewModel"
              xmlns:model="clr-namespace:Modern_Real_Estate.Model" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="900" Foreground="White">
     <UserControl.DataContext>
         <viewModel:HomeViewModel />
     </UserControl.DataContext>
-
+    
+    
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -26,31 +28,32 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <DataGrid
+
+            <Border Background="#36334d" Margin="10, 0, 10, 0"
+                CornerRadius="5" Grid.ColumnSpan="2" Grid.RowSpan="1">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="3" Color="#0d0d0d" Opacity="0.3"/>
+                </Border.Effect>
+                <ListView 
                 ItemsSource="{Binding EstateManager.MyList}"
                 SelectedItem="{Binding SelectedEstate}"
-                CanUserAddRows="False" 
-                CanUserDeleteRows="False"
-                AutoGenerateColumns="False"
-                Grid.Column="0"
-                Grid.Row="0"
-                Grid.ColumnSpan="2"
-                Grid.RowSpan="1"
-                Margin="0, 0, 0, 0"
-                Style="{StaticResource CustomGrid}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="2*"/>
-                    <DataGridTextColumn Header="Street name" Binding="{Binding StreetName}" Width="4*"/>
-                    <DataGridTextColumn Header="Zip code" Binding="{Binding ZipCode}" Width="4*"/>
-                    <DataGridTextColumn Header="City" Binding="{Binding City}" Width="4*"/>
-                    <DataGridTextColumn Header="Country" Binding="{Binding Country}" Width="4*"/>
-                    <DataGridTextColumn Header="Rooms" Binding="{Binding Rooms}" Width="4*"/>
-                    <DataGridTextColumn Header="Squre meter" Binding="{Binding SqrM}" Width="4*"/>
-                    <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="4*"/>
-                    <DataGridTextColumn Header="Image" Binding="{Binding Image}" Width="4*"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0, 25, 0, 0">
+                Style="{StaticResource CustomListView}"
+                >
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{ StaticResource CustomHeader }">
+                            <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}" />
+                            <GridViewColumn Header="Streetname" Width="auto" DisplayMemberBinding="{Binding StreetName}" />
+                            <GridViewColumn Header="Zipcode" Width="auto" DisplayMemberBinding="{Binding ZipCode}" />
+                            <GridViewColumn Header="City" Width="auto" DisplayMemberBinding="{Binding City}" />
+                            <GridViewColumn Header="Country" Width="auto" DisplayMemberBinding="{Binding Country}" />
+                            <GridViewColumn Header="Area" Width="auto" DisplayMemberBinding="{Binding Area}" />
+                            <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding Price}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
+            
+            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="35, 25, 0, 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="2*" />
@@ -88,6 +91,14 @@
                 <TextBlock Text="{Binding TextBoxValuePrice}" Grid.Row="6" Grid.Column="1" />
                 <Separator Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0, 10, 0, 10"/>
                 <TextBlock Text="{Binding Image}" />
+
+                <Border Background="White" BorderBrush="LightGray" BorderThickness="1"
+                CornerRadius="5" Padding="10" Margin="20" Grid.Column="3" Grid.RowSpan="6" Width="350">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5" Color="black" Opacity="0.5"/>
+                    </Border.Effect>
+                    <Image Source="C:\Users\Emeli\Onedrive\Skrivbord\house.jpg" />
+                </Border>
             </Grid>
         </Grid>
     </Grid>

@@ -32,13 +32,8 @@ namespace Modern_Real_Estate.ViewModel
 
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand ApartmentViewCommand { get; set; }
-        public RelayCommand ShopViewCommand { get; set; }
-        public RelayCommand HospitalViewCommand { get; set; }
-        public RelayCommand SchoolViewCommand { get; set; }
         public RelayCommand TownhouseViewCommand { get; set; }
-        public RelayCommand UniversityViewCommand { get; set; }
         public RelayCommand VillaViewCommand { get; set; }
-        public RelayCommand WarehouseViewCommand { get; set; }
 
         //public RelayCommand MenuItem_New => new RelayCommand(execute => NewFile());
         public RelayCommand MenuItem_Open => new RelayCommand(execute => OpenFile());
@@ -56,13 +51,8 @@ namespace Modern_Real_Estate.ViewModel
 
         public HomeViewModel Home { get; set; }
         public ApartmentViewModel ApartmentView { get; set; }
-        public ShopViewModel ShopView { get; set; }
-        public HospitalViewModel HospitalView { get; set; }
-        public SchoolViewModel SchoolView { get; set; }
         public TownhouseViewModel TownhouseView { get; set; }
-        public UniversityViewModel UniversityView { get; set; }
         public VillaViewModel VillaView { get; set; }
-        public WarehouseViewModel WarehouseView { get; set; }
 
 
 
@@ -92,25 +82,15 @@ namespace Modern_Real_Estate.ViewModel
             // NAVIGATION //
             Home = new HomeViewModel();
             ApartmentView = new ApartmentViewModel();
-            ShopView = new ShopViewModel();
-            HospitalView = new HospitalViewModel();
-            SchoolView = new SchoolViewModel();
             TownhouseView = new TownhouseViewModel();
-            UniversityView = new UniversityViewModel();
             VillaView = new VillaViewModel();
-            WarehouseView = new WarehouseViewModel();
             CurrentView = Home;
 
 
             HomeViewCommand = new RelayCommand(o => { CurrentView = Home; });
             ApartmentViewCommand = new RelayCommand(o => { CurrentView = ApartmentView; });
-            ShopViewCommand = new RelayCommand(o => { CurrentView = ShopView; });
-            HospitalViewCommand = new RelayCommand(o => { CurrentView = HospitalView; });
-            SchoolViewCommand = new RelayCommand(o => { CurrentView = SchoolView; });
             TownhouseViewCommand = new RelayCommand(o => { CurrentView = TownhouseView; });
-            UniversityViewCommand = new RelayCommand(o => { CurrentView = UniversityView; });
             VillaViewCommand = new RelayCommand(o => { CurrentView = VillaView; });
-            WarehouseViewCommand = new RelayCommand(o => { CurrentView = WarehouseView; });
             // NAVIGATION //
         }
 

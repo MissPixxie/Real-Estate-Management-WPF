@@ -25,7 +25,6 @@ namespace Modern_Real_Estate.ViewModel
 
         public EstateManager estateManager { get; set; }
         public ObservableCollection<string> Countries { get; set; }
-        //public int SelectedIndex { get; set; }
       
         public int TextBoxValueId { get; set; }
         public string TextBoxValueStreetName { get; set; } = "";
@@ -37,7 +36,6 @@ namespace Modern_Real_Estate.ViewModel
         public int TextBoxValueSqrM { get; set; } = 0;
         public string TextBoxValueType { get; }
         public decimal TextBoxValuePrice { get; set; } = 0;
-        //public double TextBoxValueVATPrice { get; set; }
 
 
         public RelayCommand AddCommand => new RelayCommand(execute => AddEstate());
@@ -53,7 +51,6 @@ namespace Modern_Real_Estate.ViewModel
 
             estateManager = EstateManager.GetInstance();
 
-            //EstateManager.ToStringList();
 
             SetCountry();
 

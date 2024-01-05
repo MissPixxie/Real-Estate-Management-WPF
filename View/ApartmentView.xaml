@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Modern_Real_Estate.View"
              xmlns:viewModel="clr-namespace:Modern_Real_Estate.ViewModel"
-             xmlns:model="clr-namespace:Modern_Real_Estate.Model" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:model="clr-namespace:Modern_Real_Estate.Model"
+             xmlns:Menu="clr-namespace:Modern_Real_Estate.Utilities" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -30,7 +32,8 @@
                 SelectedItem="{Binding SelectedEstate}"
                 CanUserAddRows="False" 
                 CanUserDeleteRows="False"
-                AutoGenerateColumns="False">
+                AutoGenerateColumns="False"
+                Style="{StaticResource CustomDataGrid}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="2*"/>
                     <DataGridTextColumn Header="Street name" Binding="{Binding StreetName}" Width="4*"/>
@@ -44,38 +47,61 @@
                     <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="4*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            
 
 
-            <StackPanel Grid.Column="1">
-                <Label Content="Street name" />
-                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueStreetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Label Content="Zip code" />
-                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Label Content="City" />
-                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Label Content="Country" />
-                <ComboBox ItemsSource="{Binding Countries}"
+            <Border Background="#36334d" Margin="10, 5, 15, 50"
+                CornerRadius="5" Grid.Column="1">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="3" Color="#0d0d0d" Opacity="0.3"/>
+                </Border.Effect>
+                <StackPanel Style="{StaticResource CustomStackPanel}">
+                    <Label Content="Street name" Style="{StaticResource CustomLabel}" />
+                    <TextBox Margin="5, 0, 5, 15" Style="{StaticResource CustomTextBox}" Text="{Binding TextBoxValueStreetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Content="Zip code" Style="{StaticResource CustomLabel}" />
+                    <TextBox Margin="5, 0, 5, 15" Style="{StaticResource CustomTextBox}" Text="{Binding TextBoxValueZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="City" Style="{StaticResource CustomLabel}" />
+                    <TextBox Margin="5, 0, 5, 15" Style="{StaticResource CustomTextBox}" Text="{Binding TextBoxValueCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Content="Country" Style="{StaticResource CustomLabel}" />
+                    <ComboBox ItemsSource="{Binding Countries}"
                           SelectedItem="{Binding SelectedCountry}"
                           Text="{Binding TextBoxValueCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Label Content="Rooms" />
-                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueRooms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Label Content="Square metre" />
-                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValueSqrM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Label Content="Price" />
-                <TextBox Margin="5, 0, 5, 15" Text="{Binding TextBoxValuePrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Delete"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding DeleteCommand}" />
-                    <Button Content="Save"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding SaveCommand}" />
-                    <Button Content="Add"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding AddCommand}" />
-                    <Button Content="Clear"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding ClearCommand}" />
-
+                    <Label Content="Rooms" Style="{StaticResource CustomLabel}" />
+                    <TextBox Margin="5, 0, 5, 15" Style="{StaticResource CustomTextBox}" Text="{Binding TextBoxValueRooms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Content="Square metre" Style="{StaticResource CustomLabel}" />
+                    <TextBox Margin="5, 0, 5, 15" Style="{StaticResource CustomTextBox}" Text="{Binding TextBoxValueSqrM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Content="Price" Style="{StaticResource CustomLabel}" />
+                    <TextBox Margin="5, 0, 5, 15" Style="{StaticResource CustomTextBox}" Text="{Binding TextBoxValuePrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <!--<Border  Style="{StaticResource DeleteButton}"
+                            CornerRadius="5" Grid.Column="1">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="3" Color="#0d0d0d" Opacity="0.3"/>
+                            </Border.Effect>
+                            <materialDesign:PackIcon
+                                Kind="TrashCanOutline" 
+                                Style="{StaticResource DeleteButton}"
+                                />
+                        </Border>
+                            <Button Style="{StaticResource DeleteButton}" Command="{Binding DeleteCommand}">
+                            <materialDesign:PackIcon
+                                Kind="TrashCanOutline" 
+                                Width="25" 
+                                Height="25"
+                                Background="red"
+                                Foreground="white" 
+                                />
+                        </Button>-->
+                        <!--<Button Content="Delete"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding DeleteCommand}" />-->
+                        <Button Content="Save"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding SaveCommand}" />
+                        <Button Content="Add"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding AddCommand}" />
+                        <Button Content="Clear"  Width="65" Height="30" Margin="0, 0, 5, 0" Command="{Binding ClearCommand}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Välj bild" Command="{Binding ImagePickerCommand}" Margin="0,10,0,0" />
+                        <Image Width="300" Height="300" Source="{Binding SelectedImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,-1,0,0"/>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel>
-                    <Button Content="Välj bild" Command="{Binding ImagePickerCommand}" Margin="0,10,0,0" />
-                    <Image Width="300" Height="300" Source="{Binding SelectedImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,-1,0,0"/>
-                </StackPanel>
-            </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

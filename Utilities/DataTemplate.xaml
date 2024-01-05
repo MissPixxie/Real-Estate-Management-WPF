@@ -13,31 +13,12 @@
         <view:ApartmentView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewModel:ShopViewModel}">
-        <view:ShopView />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type viewModel:HospitalViewModel}">
-        <view:HospitalView />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type viewModel:SchoolViewModel}">
-        <view:SchoolView />
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type viewModel:TownhouseViewModel}">
         <view:TownhouseView />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type viewModel:UniversityViewModel}">
-        <view:UniversityView />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type viewModel:VillaViewModel}">
         <view:VillaView />
     </DataTemplate>
-
-    <DataTemplate DataType="{x:Type viewModel:WarehouseViewModel}">
-        <view:WarehouseView />
-    </DataTemplate>
+    
 </ResourceDictionary>
