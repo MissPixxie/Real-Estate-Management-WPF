@@ -21,15 +21,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
             Country = country;
             Rooms = rooms;
             SqrM = sqrM;
-            Area = sqrM;
-            Price = CalculatePrice(price);
-        }
-
-        public override decimal CalculatePrice(decimal price)
-        {
-            decimal vat = price * 0.12m;
-
-            return Math.Floor(price + vat);
+            Price = price;
         }
     }
 }

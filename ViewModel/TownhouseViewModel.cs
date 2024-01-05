@@ -73,7 +73,7 @@ namespace Modern_Real_Estate.ViewModel
             TextBoxValueCountry = _selectedEstate?.Country ?? "";
             TextBoxValueArea = _selectedEstate?.Area ?? 0;
             TextBoxValuePrice = _selectedEstate?.Price ?? 0;
-            if (_selectedEstate is Residential townhouse)
+            if (_selectedEstate is House townhouse)
             {
                 TextBoxValueArea = townhouse.SqrM;
                 TextBoxValueRooms = townhouse.Rooms;
@@ -97,8 +97,8 @@ namespace Modern_Real_Estate.ViewModel
         }
 
 
-        private Estate _selectedEstate;
-        public Estate? SelectedEstate
+        private House _selectedEstate;
+        public House? SelectedEstate
         {
             get { return _selectedEstate; }
             set
@@ -117,8 +117,8 @@ namespace Modern_Real_Estate.ViewModel
             SelectedEstate = null;
         }
 
-        private Estate _selectedTextBoxValue;
-        public Estate SelectedTextBoxValue
+        private House _selectedTextBoxValue;
+        public House SelectedTextBoxValue
         {
             get { return _selectedTextBoxValue; }
             set
@@ -135,7 +135,7 @@ namespace Modern_Real_Estate.ViewModel
 
         public void AddEstate()
         {
-            Estate newEstate = new Townhouse(
+            House newEstate = new Townhouse(
                 TextBoxValueStreetName,
                 TextBoxValueZipCode,
                 TextBoxValueCity,
@@ -183,7 +183,7 @@ namespace Modern_Real_Estate.ViewModel
                     }
                 }
 
-                Estate newEstate = new Townhouse(
+                House newEstate = new Townhouse(
                    TextBoxValueStreetName,
                    TextBoxValueZipCode,
                    TextBoxValueCity,

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modern_Real_Estate.Model.EstateTypes
 {
-    public class Villa : Residential
+    public class Villa : House
     {
         public static string SubType => "Villa";
         public Villa() { }
@@ -19,15 +19,7 @@ namespace Modern_Real_Estate.Model.EstateTypes
             Area = area;
             Rooms = rooms;
             SqrM = sqrM;
-            Price = CalculatePrice(price);
-        }
-
-
-        public override decimal CalculatePrice(decimal price)
-        {
-            decimal vat = price * 0.12m;
-
-            return Math.Floor(price + vat);
+            Price = price;
         }
 
     }

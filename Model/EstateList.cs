@@ -83,9 +83,9 @@ namespace Modern_Real_Estate.Model
                 {
                     foundEstate.Country = country;
                 }
-                if (area != null)
+                if (foundEstate is House house && area != null)
                 {
-                    foundEstate.Area = area.Value;
+                    house.Area = area.Value;
                 }
                 if (selectedImage != null)
                 {
@@ -102,7 +102,7 @@ namespace Modern_Real_Estate.Model
                 }
                 if (price != null)
                 {
-                    foundEstate.Price = foundEstate.CalculatePrice(price.Value);
+                    foundEstate.Price = price.Value;
                 }
             }
             return true;
@@ -135,13 +135,13 @@ namespace Modern_Real_Estate.Model
                 {
                     foundEstate.Country = country;
                 }
-                if (area != null)
+                if (foundEstate is House house && area != null)
                 {
-                    foundEstate.Area = area.Value;
+                    house.Area = area.Value;
                 }
                 if (price != null)
                 {
-                    foundEstate.Price = foundEstate.CalculatePrice(price.Value);
+                    foundEstate.Price = price.Value;
                 }
             }
             return true;

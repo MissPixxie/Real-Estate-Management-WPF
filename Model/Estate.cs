@@ -19,6 +19,8 @@ namespace Modern_Real_Estate.Model
     [XmlInclude(typeof(Apartment))]
     [XmlInclude(typeof(Townhouse))]
     [XmlInclude(typeof(Villa))]
+    [XmlInclude(typeof(Parking))]
+    [XmlInclude(typeof(Storage))]
     public abstract class Estate : ObservableObject, IEstate, IComparable<Estate>
     {
 
@@ -33,7 +35,7 @@ namespace Modern_Real_Estate.Model
             }
         }
 
-        protected Estate()
+        public Estate()
         {
             _nextId++;
             _id = _nextId;
@@ -99,16 +101,6 @@ namespace Modern_Real_Estate.Model
 
         public bool IsRental { get; set; }
 
-        private int _area;
-        public int Area
-        {
-            get { return _area; }
-            set
-            {
-                _area = value;
-                OnPropertyChanged(nameof(Area));
-            }
-        }
 
         private decimal _price;
         public decimal Price
@@ -132,11 +124,10 @@ namespace Modern_Real_Estate.Model
             }
         }
 
-        public abstract decimal CalculatePrice(decimal price);
 
         public override string ToString()
         {
-            return $"Id: { Id }, Streetname: { StreetName }, Zipcode: { ZipCode }, City: { City }, Country: { Country }, Area: { Area }, Price: { Price } ";
+            return $"Id: { Id }, Streetname: { StreetName }, Zipcode: { ZipCode }, City: { City }, Country: { Country }, Price: { Price } ";
         }
 
         public int CompareTo(Estate? other)

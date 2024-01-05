@@ -68,9 +68,8 @@ namespace Modern_Real_Estate.ViewModel
             TextBoxValueZipCode = _selectedEstate?.ZipCode ?? 0;
             TextBoxValueCity = _selectedEstate?.City ?? "";
             TextBoxValueCountry = _selectedEstate?.Country ?? "";
-            TextBoxValueArea = _selectedEstate?.Area ?? 0;
             TextBoxValuePrice = _selectedEstate?.Price ?? 0;
-            if (_selectedEstate is Residential townhouse)
+            if (_selectedEstate is House townhouse)
             {
                 TextBoxValueArea = townhouse.SqrM;
                 TextBoxValueRooms = townhouse.Rooms;

@@ -16,15 +16,8 @@ namespace Modern_Real_Estate.Model.EstateTypes
             ZipCode = zipCode;
             City = city;
             Country = country;
-            Area = sqrM;
-            Price = CalculatePrice(price);
-        }
-
-        public override decimal CalculatePrice(decimal price)
-        {
-            decimal vat = price * 0.12m;
-
-            return Math.Floor(price + vat);
+            SqrM = sqrM;
+            Price = price;
         }
     }
 }
