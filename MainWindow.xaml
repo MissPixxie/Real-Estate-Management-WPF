@@ -26,14 +26,14 @@
 
         <Grid Style="{StaticResource MainGrid}">
             <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="240"/>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <materialDesign:PackIcon
                      Kind="WindowMinimize" 
@@ -42,29 +42,29 @@
                      Foreground="white" 
                      HorizontalAlignment="Right"
                      Margin="40, 0, 10, 10"
-                     MouseLeftButtonDown="Minimize_icon"/>                    
+                     MouseLeftButtonDown="Minimize_icon"/>
 
-            <materialDesign:PackIcon
+                <materialDesign:PackIcon
                 Kind="CloseBold" 
                 Width="25" 
                 Height="25" 
                 Foreground="white" 
                 HorizontalAlignment="Right"
                 Margin="0, 0, 10, 10"
-                MouseLeftButtonDown="Close_icon"/>               
+                MouseLeftButtonDown="Close_icon"/>
             </StackPanel>
 
             <DockPanel LastChildFill="False">
-            <Menu DockPanel.Dock="Top" Margin="0, 30, 0, 0">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_New" Command="{Binding MenuItem_New}"/>
-                    <MenuItem Header="_Open" Command="{Binding MenuItem_Open}"/>
-                    <MenuItem Header="_Save" Command="{Binding MenuItem_Save}"/>
-                    <Separator  />
-                    <MenuItem Header="_Exit" Command="{Binding MenuItem_Exit}"/>
-                </MenuItem>
-            </Menu>
-        </DockPanel>
+                <Menu DockPanel.Dock="Top" Margin="0, 30, 0, 0">
+                    <MenuItem Header="_File">
+                        <MenuItem Header="_New" Command="{Binding MenuItem_New}"/>
+                        <MenuItem Header="_Open" Command="{Binding MenuItem_Open}"/>
+                        <MenuItem Header="_Save" Command="{Binding MenuItem_Save}"/>
+                        <Separator  />
+                        <MenuItem Header="_Exit" Command="{Binding MenuItem_Exit}"/>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
             <StackPanel Grid.Row="0" Grid.RowSpan="3" Margin="0, 80, 0, 0">
                 <RadioButton Name="Home"  
                          Height="40" 
@@ -87,19 +87,30 @@
                          Margin="0, 0, 5, 0" 
                          Command="{Binding TownhouseViewCommand}"
                          Style="{StaticResource ButtonStyle}"/>
+                <RadioButton Name="Parking"  
+                  Height="40"
+                             Panel.ZIndex="1"
+                  Margin="0, 0, 5, 0" 
+                  Command="{Binding ParkingViewCommand}"
+                  Style="{StaticResource ButtonStyle}"/>
+                <RadioButton Name="Storage"  
+                  Height="40" 
+                              Panel.ZIndex="1"
+                  Margin="0, 0, 5, 0" 
+                  Command="{Binding StorageViewCommand}"
+                  Style="{StaticResource ButtonStyle}"/>
                 <Ellipse Grid.Row="2"
-                     Width="300"
-                     Height="400"
+                     Width="266"
+                     Height="362"
                      Fill="#1f1f2d"
                      Margin="20, -50, 0, 0"
-                     VerticalAlignment="Top"
                      />
             </StackPanel>
 
             <ContentControl Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Content="{Binding CurrentView}" Margin="0, 30, 0, 0"/>
             <!--<TextBox Grid.Column="2" Grid.Row="3" Text="{Binding MyList}" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>-->
 
-    </Grid>
+        </Grid>
 
     </Border>
 </Window>

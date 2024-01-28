@@ -20,5 +20,15 @@
     <DataTemplate DataType="{x:Type viewModel:VillaViewModel}">
         <view:VillaView />
     </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type viewModel:ParkingViewModel}">
+        <view:ParkingView />
+    </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type viewModel:StorageViewModel}">
+        <view:StorageView />
+    </DataTemplate>
     
 </ResourceDictionary>

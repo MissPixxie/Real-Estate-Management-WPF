@@ -20,12 +20,8 @@ namespace Modern_Real_Estate.ViewModel
 
     public class MainViewModel : ViewModelBase
     {
-        //private string fileName = Environment.CurrentDirectory + "\\estateList.dat";
-        //private string filePath = Environment.CurrentDirectory + @"\estateList.xml";
-        //public string fileContent { get; set; }
+ 
         public ObservableList<Estate> MyList { get; set; }
-
-        //public FileHandler fileHandler { get; set; }
 
        public EstateManager estateManager { get; set; }
 
@@ -34,6 +30,10 @@ namespace Modern_Real_Estate.ViewModel
         public RelayCommand ApartmentViewCommand { get; set; }
         public RelayCommand TownhouseViewCommand { get; set; }
         public RelayCommand VillaViewCommand { get; set; }
+
+        public RelayCommand ParkingViewCommand { get; set; }
+        public RelayCommand StorageViewCommand { get; set; }
+
 
         //public RelayCommand MenuItem_New => new RelayCommand(execute => NewFile());
         public RelayCommand MenuItem_Open => new RelayCommand(execute => OpenFile());
@@ -53,7 +53,8 @@ namespace Modern_Real_Estate.ViewModel
         public ApartmentViewModel ApartmentView { get; set; }
         public TownhouseViewModel TownhouseView { get; set; }
         public VillaViewModel VillaView { get; set; }
-
+        public ParkingViewModel ParkingView { get; set; }
+        public StorageViewModel StorageView { get; set; }
 
 
         private object _currentView;
@@ -84,6 +85,8 @@ namespace Modern_Real_Estate.ViewModel
             ApartmentView = new ApartmentViewModel();
             TownhouseView = new TownhouseViewModel();
             VillaView = new VillaViewModel();
+            ParkingView = new ParkingViewModel();
+            StorageView = new StorageViewModel();
             CurrentView = Home;
 
 
@@ -91,6 +94,8 @@ namespace Modern_Real_Estate.ViewModel
             ApartmentViewCommand = new RelayCommand(o => { CurrentView = ApartmentView; });
             TownhouseViewCommand = new RelayCommand(o => { CurrentView = TownhouseView; });
             VillaViewCommand = new RelayCommand(o => { CurrentView = VillaView; });
+            ParkingViewCommand = new RelayCommand(o => { CurrentView = ParkingView; });
+            StorageViewCommand = new RelayCommand(o => { CurrentView = StorageView; });
             // NAVIGATION //
         }
 
